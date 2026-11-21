@@ -18,7 +18,7 @@ def clean_title(s):
     return re.split(r"[-|/]", s.strip(), maxsplit=1)[0].strip()
 
 def get_weight(s):
-    m = re.search(r"(\\d+(?:\\.\\d+)?)\\s*(KG|KGS|GRAMS?|GR|GMS?|GM)\\b", str(s), re.I)
+    m = re.search(r"(\d+(?:\.\d+)?)\s*(KG|KGS|GRAMS?|GR|GMS?|GM)\b", str(s), re.I)
     if not m: return None
     n, unit = float(m.group(1)), m.group(2).upper()
     if unit in ("KG","KGS"): n *= 1000
